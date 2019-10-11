@@ -18,6 +18,7 @@ export class ClaimComponent implements OnInit {
   receipt: Receipt;
   otherClaim: Receipt;
   files: any;
+  orReceipt: any;
 
   constructor(
     private sharedService: SharedService,
@@ -93,6 +94,14 @@ export class ClaimComponent implements OnInit {
     this.localStorage.subjects.files.subscribe(
       (res: any) => {
         this.files = res;
+      }
+    );
+    // original receipt
+
+    this.orReceipt = this.localStorage.getSelectedData('orReceipt');
+    this.localStorage.subjects.orReceipt.subscribe(
+      (res: any) => {
+        this.orReceipt = res;
       }
     );
   }

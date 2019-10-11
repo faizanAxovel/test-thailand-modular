@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="submit-page mt-3 mb-5">
+        <div class="row">
+            <!-- <div class="wd-lg-6 d-none d-lg-block">
+                    <div class="y-box">
+                        <div class="title">
+                            <h1 translate>Download Our App</h1>
+                            <p translate>Used for Claim Submission and Policy Administration</p>
+                        </div>
+                        <div class="d-flex add-content align-items-center justify-content-between">
+                            <div class="mobile-screen"><img src="/assets/images/mobile-screen-white.png">
+                                <div class="set-position">
+                                    <ngx-qrcode qrc-element-type="url" qrc-class="my-qr-code" [(qrc-value)]="url"></ngx-qrcode>
+                                </div>
+                            </div>
+                            <div class="ml-4 fb-60">
+                                <div class="d-flex align-items-center note-icon">
+                                    <div class="icon-circle mr-2"><img src="/assets/images/track-icon.png"></div>
+                                    <p translate>Track and get notified on the progress of your claims</p>
+                                </div>
+                                <div class="d-flex align-items-center note-icon">
+                                    <div class="icon-circle mr-2"><img src="/assets/images/clock-icon.png"></div>
+                                    <p translate>Quicker claims process with fewer questions</p>
+                                </div>
+                                <div class="d-flex align-items-center note-icon">
+                                    <div class="icon-circle mr-2"><img src="/assets/images/doctor-search-icon.png"></div>
+                                    <p translate>Search for doctors that your policy covers</p>
+                                </div>
+                                <div class="d-flex g-play-img">
+                                    <a target="_blank" [href]="urls.appPlayStoreUrl | translate" class="mr-3"><img src="/assets/images/google-play.png"></a>
+                                    <a target="_blank" [href]="urls.appAppleUrl | translate"><img src="/assets/images/app-store.png"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            <div class="col-md-12">
+                <div class="p-sm-3 wrap-confirm-tbox text-center m-auto max-w-6">
+                    <div class="mb-3"><img class="d-none d-md-block m-auto" src="assets/images/thank-you-check.png"><img class="d-md-none m-auto" src="assets/images/thank-you-sm-check.png"></div>
+                    <div class="title mb-2">
+                        <h1 translate>Thank you for your submission!</h1>
+                        <p translate>Your request has been submitted successfully and we will process it as soon as possible.</p>
+                    </div>
+                    <div class="code-box p-4">
+                        <p> <span translate>Please save the refrence code below for use in case you need to contact LMG Insurance about the claim</span></p>
+                        <h3>{{refrenceCode}}</h3>
+                        <button class="btn" (click)="copyReferenceCode(refrenceCode)">{{buttonText }}</button>
+                    </div>
+                    <div class="mt-5 next-submit"><a [routerLink]="['']" translate>Back to Home</a></div>
+                </div>
+            </div>
+            <!-- <div class="d-lg-none d-block full-width">
+                    <div class="mb-top-title">
+                        <div class="title">
+                            <h1 translate>Download Our App</h1>
+                            <p translate>Used for Claim Submission and Policy Administration</p>
+                        </div>
+                    </div>
+                    <div class="d-flex botm-grey-box">
+                        <div class="right-content-wrap">
+                            <div class="d-flex">
+                                <div class="info-icon text-center">
+                                    <div class="sm-icon"><img src="/assets/images/mb-notification.png"></div>
+                                    <p translate>Track and get notified on the progress of your claims</p>
+                                </div>
+                                <div class="info-icon text-center">
+                                    <div class="sm-icon"><img src="/assets/images/mb-clock.png"></div>
+                                    <p translate>Quicker claims process with fewer questions</p>
+                                </div>
+                                <div class="info-icon text-center">
+                                    <div class="sm-icon"><img src="/assets/images/mb-search-doctor.png"></div>
+                                    <p translate>Search for doctors that your policy covers</p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center wrap-app-btn">
+                                <a target="_blank" [href]="urls.appPlayStoreUrl | translate" class="mr-2"><img src="/assets/images/google-play.png"></a>
+                                <a target="_blank" [href]="urls.appAppleUrl | translate"><img src="/assets/images/app-store.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+    </div>
+</div>

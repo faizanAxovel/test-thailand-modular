@@ -13,7 +13,8 @@ export class LocalStorageService {
     diagnosis: new Subject(),
     receipt: new Subject(),
     otherClaim: new Subject(),
-    files: new Subject()
+    files: new Subject(),
+    orReceipt: new Subject()
   };
 
 
