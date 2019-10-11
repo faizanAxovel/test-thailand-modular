@@ -223,3 +223,9 @@ img {
         width: 100%;
     }
 }
+
+@media screen and (min-width:320px) and (max-width:767px) {
+    .submit-page {
+        margin-top: 30px !important;
+    }
+}

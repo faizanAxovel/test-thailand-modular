@@ -216,8 +216,8 @@ body {
 
 @media screen and (min-width:320px) and (max-width:767px) {
     .dbox {
-        width: 105px;
-        height: 100px;
+        width: 100px;
+        height: 95px;
         margin-right: 10px;
         padding: 10px;
     }
@@ -457,6 +457,11 @@ body {
     background-color: #28a3af;
 }
 
+.e-calendar .e-content td.e-selected span.e-day:hover,
+.e-datepicker .e-model-header:hover {
+    background-color: #28a3af;
+}
+
 .e-calendar .e-content td.e-today span.e-day,
 .e-calendar .e-content td.e-focused-date.e-today span.e-day,
 .e-bigger.e-small .e-calendar .e-content td.e-today span.e-day,
@@ -483,7 +488,8 @@ body {
 }
 
 .policy-deatil-card .col-md-12,
-.policy-deatil-card .col-lg-6 {
+.policy-deatil-card .col-lg-6,
+.policy-deatil-card .col-12.mt-4 {
     position: inherit;
 }
 
@@ -493,4 +499,32 @@ body {
     margin-left: 0;
     right: 4%;
     bottom: 5%;
+}
+
+.max-w-6 {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width:320px) and (max-width:767px) {
+    .policy-deatil-card .next-btn {
+        position: relative;
+        margin: 20px auto;
+        display: block;
+        right: 0;
+        bottom: 0;
+    }
+    .policy-deatil-card {
+        margin: 30px auto;
+        padding: 25px 10px;
+        position: relative;
+        min-height: auto;
+    }
+    .dt-btn button.btn-light {
+        padding: 10px 22px;
+        font-size: 13px;
+    }
+    .policy-deatil-card .change-screen {
+        margin-bottom: 25px;
+    }
 }

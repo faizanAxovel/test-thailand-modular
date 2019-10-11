@@ -82,7 +82,7 @@
             <button class="btn" (click)="setLatestScreen('/claim-process/other-claim')">Edit</button>
         </div>
     </div>
-    <div class="display-flex justify-content-between mb-4" *ngFor="let file of files | keyvalue;let i=index" [style.display]="(file.value.length == 0 ? 'none' : null)">
+    <div class="d-flex justify-content-between mb-4" *ngFor="let file of files | keyvalue;let i=index" [style.display]="(file.value.length == 0 ? 'none' : null)">
         <div class="side-show-text d-flex">
             <div class="icon-before">
                 <p translate>{{ 'Attached' }} {{ file.key }}</p>
