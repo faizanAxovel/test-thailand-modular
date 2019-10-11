@@ -1,0 +1,25 @@
+<div class="change-screen">
+    <div class="title mb-4">
+        <h1 translate>What was your diagnosis?</h1>
+        <p translate>Tell us the diagnosis given by the doctor.</p>
+    </div>
+    <div class="wrap-doctor-list diagnosis-search mt-5">
+        <div class="input-group form_row">
+            <input type="text" id="diagnosisName" name="diagnosisName" class="form-control form-textbox" [(ngModel)]="dSearchStr" autofocus>
+            <label for="diagnosisName" class="cal-top-text form-label" [ngClass]="{'active': dSearchStr}" translate>Type to narrow down the options.</label>
+            <div class="input-group-append">
+                <button class="btn btn-secondary search-btn" type="button">
+                <img src="assets/images/search-icon.png">
+            </button>
+            </div>
+        </div>
+    </div>
+    <div class="search-select-list mt-4">
+        <div class="d-flex flex-wrap d-max-screen justify-content-between">
+            <div class="radio-box" *ngFor="let di of diagnosis | diagnosis : dSearchStr : diagnosis">
+                <input type="radio" [checked]="diag && diag.description === di.description" id="" (click)="selectedDiagnosis(di)" name="radio-group" value="1">
+                <label class="br-10">{{di.description}}</label>
+            </div>
+        </div>
+    </div>
+</div>

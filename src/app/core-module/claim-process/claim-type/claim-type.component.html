@@ -1,0 +1,15 @@
+<div class="mainbox">
+    <h2>Claim Type</h2>
+    <p class="sb-hding">Which of the below best describes the type of treatment you received?</p>
+    <div class="d-flex flex-wrap mb-4 dbox-main">
+        <div class="dbox" [ngClass]="{covered: memberType.isCovered, 'active-box':(claimType && claimType.description === memberType.description) }" *ngFor="let memberType of claimTypes; let i=index" (click)="selecteClaimType(memberType, memberType.isCovered)">
+            <div class="radio-box">
+                <input type="radio" routerLinkActive="active" name="member-type">
+                <img [src]="'/assets/images/' + memberType.image" alt="">
+                <label [style.color]="memberType.isCovered ? '#d3d3d3': ''">{{memberType.description}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal [message]="message" *ngIf="showPopup" (byCancel)="canceled($event)"></app-modal>

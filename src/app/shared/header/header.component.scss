@@ -1,0 +1,64 @@
+header {
+    background: #ffdf57;
+    line-height: 51px;
+}
+
+.dark-yellow {
+    background: #ffd005;
+    padding: 20px 0px;
+}
+
+.dark-yellow .logo-text img.lg-logo {
+    width: 164px;
+}
+
+.support-link a {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    font-size: .875rem;
+    line-height: .875rem;
+}
+
+.logo-text h3 {
+    font-size: 24px;
+    font-family: "OpenSans-Bold";
+    color: #1a1446;
+    margin-bottom: 0;
+}
+
+.contact {
+    font-size: 14px;
+    color: #000;
+}
+
+.contact:before {
+    content: "";
+    background: url("/assets/images/phone-receiver.png")no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.lang-switcher select {
+    background-color: transparent;
+    border-color: transparent;
+    color: #000;
+    font-size: 14px;
+}
+
+.lang-switcher select:focus {
+    outline: transparent;
+    box-shadow: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .logo-text h3 {
+        font-size: 16px !important;
+    }
+    .dark-yellow .logo-text img.lg-logo {
+        width: 130px;
+    }
+}

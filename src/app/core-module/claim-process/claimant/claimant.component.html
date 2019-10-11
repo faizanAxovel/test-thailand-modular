@@ -1,0 +1,19 @@
+<ng-container *ngIf="policyType == 'P' else gp">
+    <div class="change-screen">
+        <div class="title mb-4">
+            <h1 translate>Claimant</h1>
+            <p translate>The claimant is the person who visited the doctor and reaceived the treatment.</p>
+        </div>
+        <div class="d-lg-flex">
+            <div class="d-flex flex-wrap d-max-screen justify-content-between w-100">
+                <div class="radio-box " *ngFor="let claim of claimants">
+                    <input type="radio" [checked]="claimant && (claimant.name == claim.name)" name="insured-member" (click)="selectedClaim(claim)" value="{{claim.name}}">
+                    <label class="br-10">{{claim.name}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-template #gp>
+    <app-claimant-gp [claimant]="claimant" (seletedClaimant)="selected($event)"></app-claimant-gp>
+</ng-template>

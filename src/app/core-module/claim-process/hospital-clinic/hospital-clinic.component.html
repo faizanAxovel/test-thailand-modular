@@ -1,0 +1,27 @@
+<div class="change-screen">
+    <div class="mh-100">
+        <div class="title mb-4">
+            <h1>Hospital or Clinic Name</h1>
+            <p translate>What was the name of the doctor or clinic?</p>
+        </div>
+        <div class="wrap-doctor-list">
+            <div class="d-flex align-items-center tooltip-in">
+
+            </div>
+            <div class="input-group form_row">
+                <input [ngClass]="{ alertBox: isSpeciolFound}" type="text" id="doctarName" name="hospitalName" class="form-control form-textbox" [(ngModel)]="searchStr" autofocus>
+                <label for="doctarName" class="cal-top-text form-label" [ngClass]="{'active': searchStr}" translate>Type to narrow down the options.</label>
+            </div>
+            <div class="search-select-list mt-4">
+                <div class="d-flex flex-wrap d-max-screen justify-content-between">
+                    <div class="radio-box" *ngFor="let hos of Hospitals | searchDoctor : searchStr : hospitals">
+                        <input type="radio" [checked]="hospital && hos.name === hospital.name" id="{{hos.id}}" (click)="seleectedHospital(hos)" name="radio-group" value="1">
+                        <label class="br-10">{{ hos.name }}</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

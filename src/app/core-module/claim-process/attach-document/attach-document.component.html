@@ -1,0 +1,24 @@
+<div class="change-screen attach-screen" *ngFor="let doc of docTypes; let i=index" [ngStyle]="{display: activatedScreen == doc.docCode ? 'block' : 'none'}">
+    <div class="mh-100">
+        <div class="mainbox">
+            <!-- <p class="error_text">{{attachedFileError}}</p> -->
+            <h2>Attach {{ doc.docCode }}</h2>
+            <p class="sb-hding">Take a photo or attach your Receipt.</p>
+            <div class="d-flex dbox-main flex-wrap">
+                <div class="mb-1">
+                    <img src="/assets/images/attached-blank.png" alt="">
+                    <label for="upload-photo{{i}}">
+                    </label>
+                    <input type="file" (change)="onChange($event.target,doc.docCode )" name="photo" id="upload-photo{{i}}" class="d-none" accept="image/png, image/jpg, image/jpeg" multiple />
+                </div>
+                <div class="attached-image mb-1" *ngFor="let file of totalFiles[doc.docCode]">
+                    <img [src]="file.url" alt="">
+                </div>
+            </div>
+            <p class="text-danger" *ngIf="isError">{{ errText }}</p>
+        </div>
+    </div>
+    <div class="sm-center">
+        <button [disabled]="!isFileAttached" class="btn btn-primary next-btn my-btn mg-bottom" (click)="reviewClaim(i)" translate>{{  'Next' }}</button>
+    </div>
+</div>

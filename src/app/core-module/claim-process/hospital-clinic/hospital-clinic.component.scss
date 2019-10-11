@@ -1,0 +1,127 @@
+.search-select-list ul.left-list,
+.search-select-list ul.right-list {
+    flex-basis: 50%;
+}
+
+.doctors-list li {
+    font-size: 13px;
+    color: #28a3af;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.doctors-list li:hover {
+    color: #1a1446;
+}
+
+ul.list-group-popup {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background: #fff;
+    top: 37px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0px 4px 5px #ccc;
+}
+
+ul.list-group-popup li {
+    cursor: pointer;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #808080;
+}
+
+.list-group-popup li span {
+    color: #1a1446;
+}
+
+.wrap-doctor-list input.form-control {
+    font-size: 14px;
+    height: calc(1.7em + .75rem + 2px);
+}
+
+.form_row {
+    position: relative;
+    margin-top: 20px;
+}
+
+label.form-label {
+    position: absolute;
+    top: 7px;
+    left: 14px;
+    color: #999;
+    user-select: none;
+    transition: all .15s ease-in-out 0s;
+    margin-bottom: 0px;
+}
+
+.form-textbox:focus+.form-label,
+.form-label.active {
+    top: -1.8em;
+    left: 0;
+    font-size: 15px;
+    color: #1a1446;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 991px) {
+    .doctors-list {
+        column-count: 2;
+    }
+}
+
+.form_row {
+    position: relative;
+    margin-top: 20px;
+}
+
+label.form-label {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    color: #999;
+    user-select: none;
+    transition: all .15s ease-in-out 0s;
+    margin-bottom: 0px;
+}
+
+.form-textbox:focus+.form-label,
+.form-label.active {
+    top: -1.8em;
+    left: 0;
+    font-size: 15px;
+    color: #1a1446;
+    cursor: pointer;
+}
+
+.search-btn {
+    background-color: #28a3af;
+    border-color: #28a3af;
+    border: none;
+}
+
+@media only screen and (max-width: 576px) {
+    label.form-label {
+        font-size: 12px;
+        top: 10px;
+    }
+    .search-btn {
+        padding: .375em .5rem;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .d-max-screen {
+        max-height: 350px;
+        overflow-y: auto;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .d-max-screen {
+        max-height: 275px;
+        overflow-y: auto;
+    }
+}

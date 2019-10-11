@@ -1,0 +1,20 @@
+<div class="change-screen ">
+    <div class="mh-100">
+        <div class="title mb-4">
+            <h1 translate>Receipt Amount</h1>
+            <p translate>What was the amount you paid for the treatment?</p>
+        </div>
+        <div class="d-flex other-insurerselect">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">THD</span>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="amount" aria-label="Username" aria-describedby="basic-addon1" (keyup)="validate($event, next)" autofocus>
+            </div>
+        </div>
+        <p class="text-danger" *ngIf="isInvalid">{{ errorText }}</p>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary next-btn" (click)="selectedCurrency()" translate [disabled]="isInvalid">Next</button>
+    </div>
+</div>

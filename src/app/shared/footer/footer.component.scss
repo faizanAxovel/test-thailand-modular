@@ -1,0 +1,20 @@
+footer {
+    background: #1a1446;
+    color: #fff;
+}
+
+.footer {
+    min-height: 50px;
+}
+
+@media(min-width: 1197px) {
+    .copyright {
+        margin-left: auto;
+    }
+}
+
+@media(max-width: 768px) {
+    footer {
+        padding: 10px 20px;
+    }
+}

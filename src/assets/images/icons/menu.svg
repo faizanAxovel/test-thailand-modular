@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.1 (72631) - https://sketchapp.com -->
+    <title>51A17C3E-5E0F-4B26-A80E-9B38E85D4311</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M0.509,1.571 L0.509,0.27 L13.49,0.27 L13.49,1.571 L0.509,1.571 Z M0.509,5.702 L0.509,4.299 L13.49,4.299 L13.49,5.702 L0.509,5.702 Z M0.509,9.729 L0.509,8.428 L13.49,8.428 L13.49,9.729 L0.509,9.729 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nav-/-Tablet" transform="translate(-683.000000, -47.000000)">
+            <g id="nav">
+                <g id="contact" transform="translate(672.000000, 34.000000)">
+                    <g id="open-menu">
+                        <g id="Icons/System-Icons/Menu" transform="translate(11.000000, 13.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Icon_System_Menu" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

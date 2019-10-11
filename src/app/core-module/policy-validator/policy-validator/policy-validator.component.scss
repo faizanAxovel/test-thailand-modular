@@ -1,0 +1,91 @@
+.note-text p {
+    color: #0f73ee;
+    font-size: 14px;
+}
+
+.note-text p span {
+    font-family: "OpenSans-Bold";
+}
+
+.next-btn[disabled] {
+    background-color: #e9e9e9;
+    border-color: #e9e9e9;
+    color: rgba(26, 19, 70, 0.5);
+}
+
+.next-btn {
+    background-color: #99e5ea;
+    border-color: #99e5ea;
+    color: #000;
+    border-radius: 50px;
+    padding: 9px 31px;
+}
+
+.lg-input-wd {
+    width: 70%;
+    margin-right: 5px;
+}
+
+.sm-input-wd {
+    width: 22%;
+    margin-left: 5px;
+}
+
+.policy-deatil-card input.form-control {
+    height: calc(2.1em + .75rem + 2px);
+    border-radius: 2px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+/* For IE10 */
+
+input[type=number]::-ms-expand {
+    display: none;
+}
+
+::placeholder {
+    font-size: 14px;
+}
+
+::-moz-placeholder {
+    font-size: 14px;
+}
+
+.hyphen-col {
+    color: #7b7b7b;
+}
+
+.form-error {
+    font-size: 14px;
+}
+
+a {
+    color: #3b75ae;
+}
+
+@media only screen and (max-width: 990px) {
+    .col-lg-8 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .lg-input-wd {
+        width: 62%;
+    }
+    .sm-input-wd {
+        width: 30%;
+    }
+}
+
+.w-100 {
+    width: 175px!important;
+}

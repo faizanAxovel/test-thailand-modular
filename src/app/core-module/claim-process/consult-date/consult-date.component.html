@@ -1,0 +1,20 @@
+<div class="change-screen ">
+    <div class="mh-100">
+        <div class="title mb-4">
+            <h1 translate>Consultation Date</h1>
+            <p translate>The consultation must be within the past 90 days and on or after the start date of your insurance.</p>
+        </div>
+        <div class="d-lg-flex">
+            <div class="d-flex flex-wrap w-100">
+                <div class="full-calender mb-4">
+                    <ejs-datepicker cssClass="mydatepicker" strictMode="true" id='datepicker' [value]="dateValue" format='EEEE, d MMMM y' [min]='min' [max]='max' (change)="consultDate(calendar.value)" placeholder="Select a date" #calendar></ejs-datepicker>
+                </div>
+                <div class="dt-btn"><button class="btn btn-light" (click)="prevDate()" translate>Yesterday?</button></div>
+                <div class="dt-btn ml-2"><button class="btn btn-light" (click)="todayDate()" translate>Today?</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="sm-center">
+        <button class="btn btn-primary next-btn" [disabled]="isInvalid" (click)="setConsultDate()">Next</button>
+    </div>
+</div>
