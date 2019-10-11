@@ -111,7 +111,7 @@ export class AttachDocumentComponent implements OnInit, OnDestroy {
 
   reviewClaim(index) {
     if (this.docTypes.length - 1 === index) {
-      this.sharedService._router.navigate(['/review-claim']);
+      this.sharedService._router.navigate(['/claim-process/over-limit']);
     } else {
       this.sharedService._router.navigateByUrl('/claim-process/attach-document?screen=' + (index + 2) + '#' + this.docTypes[index + 1].docCode);
     }

@@ -17,6 +17,8 @@ import { ReceiptAmountComponent } from './receipt-amount/receipt-amount.componen
 import { DiagnosisPipe } from './pipe/diagnosis.pipe';
 import { OtherClaimComponent } from './other-claim/other-claim.component';
 import { AttachDocumentComponent } from './attach-document/attach-document.component';
+import { OverLimitInfoComponent } from './over-limit-info/over-limit-info.component';
+import { ReceiptConfirmationComponent } from './receipt-confirmation/receipt-confirmation.component';
 
 const routes: Routes = [
   {
@@ -54,6 +56,14 @@ const routes: Routes = [
       {
         path: 'attach-document',
         component: AttachDocumentComponent
+      },
+      {
+        path: 'receipt-confirmation',
+        component: ReceiptConfirmationComponent
+      },
+      {
+        path: 'over-limit',
+        component: OverLimitInfoComponent
       }
     ]
   }
@@ -73,7 +83,9 @@ const routes: Routes = [
     DiagnosisPipe,
     ReceiptAmountComponent,
     OtherClaimComponent,
-    AttachDocumentComponent
+    AttachDocumentComponent,
+    OverLimitInfoComponent,
+    ReceiptConfirmationComponent
   ],
   imports: [
     CommonModule,

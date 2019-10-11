@@ -1,0 +1,12 @@
+.radio-box:hover label {
+    background-color: transparent;
+    color: inherit;
+}
+
+.selected img {
+    opacity: 1;
+}
+
+.selected {
+    border: 1px solid #78e2e1;
+}

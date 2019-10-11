@@ -1,0 +1,79 @@
+<div class="container cnt_hit">
+    <div class="row warning-submit mt-3 mb-5">
+
+        <!-- <div class=" wd-lg-6 d-none d-lg-block">
+                                <div id="ybox" class="y-box">
+                                    <div class="title">
+                                        <h1 translate>Download Our App</h1>
+                                        <p translate>Used for Claim Submission and Policy Administration</p>
+                                    </div>
+                                    <div class="d-flex add-content align-items-center justify-content-between">
+                                        <div class="mobile-screen"><img src="/assets/images/mobile-screen-white.png">
+                                            <div class="set-position"><ngx-qrcode qrc-element-type="url" qrc-class="my-qr-code qr-mob" [(qrc-value)]="url"></ngx-qrcode></div>
+                                        </div>
+                                        <div class="ml-4 fb-60">
+                                            <div class="d-flex align-items-center note-icon">
+                                                <div class="icon-circle mr-2"><img src="/assets/images/track-icon.png"></div>
+                                                <p translate>Track and get notified on the progress of your claims</p>
+                                            </div>
+                                            <div class="d-flex align-items-center note-icon">
+                                                <div class="icon-circle mr-2"><img src="/assets/images/clock-icon.png"></div>
+                                                <p translate>Quicker claims process with fewer questions</p>
+                                            </div>
+                                            <div class="d-flex align-items-center note-icon">
+                                                <div class="icon-circle mr-2"><img src="/assets/images/doctor-search-icon.png"></div>
+                                                <p translate>Search for doctors that your policy covers</p>
+                                            </div>
+                                            <div class="d-flex app-btn">
+                                                <a target="_blank" [href]="urls.appPlayStoreUrl | translate"  class="mr-3"><img src="/assets/images/google-play.png"></a>
+                                                <a target="_blank" [href]="urls.appAppleUrl | translate"><img src="/assets/images/app-store.png"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="d-flex p-sm-2 wrap-warning-box flex-column justify-content-center align-items-center text-center m-auto max-w-6">
+                <div class="mb-3 wd-img"><img class="d-none d-md-block" src="assets/images/exclamation-mark.png"><img class="d-md-none" src="assets/images/exclamation-mark-sm.png"></div>
+                <div class="title mb-2">
+                    <h1 class="mb-3" translate>You are not done! We need more Information!</h1>
+                    <!-- <p translate>We have sent an email to</p>
+                            <a href="#">123@lhc.uat</a> -->
+                </div>
+
+                <ol class="task-text mb-3">
+                    <li><span translate>Please access our </span>
+                        <span> <a translate  [href]='' target='_blank'>claim form </a></span>
+                        <a [href]='' target='_blank'><img src="assets/images/link.png"></a>
+                    </li>
+                    <li> <strong><span translate>Please print and mail this form </span><u translate>with the original Receipt(s)</u> <span translate> to...</span></strong></li>
+                </ol>
+
+                <div class="warning-message p-4 mb-4">
+                    <!-- <h3 translate>Liberty Address:</h3> -->
+                    <p translate>Attn: A&H Claims Department</p>
+                    <p>Ref: {{refrenceCode}}</p>
+                    <p translate>Liberty International Insurance Limited</p>
+                    <p translate>13/F Berkshire House</p>
+                    <p translate>25 Westlands Road, Quarry Bay, Hong Kong</p>
+
+                    <!-- <p class="mb-0" translate>Address: 13/F Berkshire House, 25 Westlands Road, Quarry Bay, Hong Kong</p> -->
+                </div>
+
+                <div class="fit-content">
+                    <p><b><span >{{ 'Reason: '  }}</span><span translate>You need to provide the original receipt for claim of this amount.</span></b></p>
+                </div>
+
+                <div class="code-box p-4">
+                    <p translate>Please provide the reference code below for assistance by contacting us at<span class="d-block d-sm-inline"> +852 2892 3809</span></p>
+                    <h3>{{refrenceCode}}</h3>
+                    <button class="btn" (click)="copyReferenceCode(refrenceCode)">{{ buttonText }}</button>
+                </div>
+                <div class="d-flex mt-4 next-submit"><a [routerLink]="['']" translate>Submit another?</a></div>
+            </div>
+        </div>

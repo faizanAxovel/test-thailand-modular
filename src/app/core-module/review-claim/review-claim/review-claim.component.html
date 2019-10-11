@@ -1,0 +1,109 @@
+<div class="col-lg-12">
+    <div class="title mb-4">
+        <p class="text-danger" *ngIf="serverError">{{ serverError }}</p>
+        <h1 translate>Review Claim Details</h1>
+        <p class="text-danger">Providing incorrect information may result in your claim being denied.</p>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="consultDate">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Consult Date</p>
+                <h3>{{ consultDate | date }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/consult-date')">Edit</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="claimant">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Claimant</p>
+                <h3>{{ claimant.name }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/claimant')">Edit</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="claimType">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>ClaimType</p>
+                <h3>{{ claimType.description }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/claim-type')">Edit</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="hospital">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Hospital</p>
+                <h3>{{ hospital.name }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/hospital-clinic')">Edit</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="diagnosis">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Hospital</p>
+                <h3>{{ diagnosis.description }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/diagnosis')">Edit</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="receipt">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Amount</p>
+                <h3>{{ receipt.currency + ' ' + receipt.amount }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/receipt-amount')">Edit</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="otherClaim">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Other Amount</p>
+                <h3 *ngIf="otherClaim.currency != 'None'">{{ otherClaim.currency + ' ' + otherClaim.amount }}</h3>
+                <h3 *ngIf="otherClaim.currency == 'None'">{{ otherClaim.currency }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/other-claim')">Edit</button>
+        </div>
+    </div>
+    <div class="display-flex justify-content-between mb-4" *ngFor="let file of files | keyvalue;let i=index" [style.display]="(file.value.length == 0 ? 'none' : null)">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>{{ 'Attached' }} {{ file.key }}</p>
+                <h3 *ngIf="file.value">{{ file.value.length }} {{ file.value.length > 1 ? 'documents' : 'document' }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn"><button class="btn" (click)="setLatestScreen('/claim-process/attach-document?screen=' + (i + 1) + '#'+file.key)" routerLinkActive="active">Edit</button></div>
+    </div>
+    <div class="d-flex justify-content-between mb-4" *ngIf="orReceipt">
+        <div class="side-show-text d-flex">
+            <div class="icon-before">
+                <p translate>Original Rceipt</p>
+                <h3>{{ orReceipt.status }}</h3>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <button class="btn" (click)="setLatestScreen('/claim-process/other-claim')">Edit</button>
+        </div>
+    </div>
+    <p class="mt-3 review-text"><span translate>By clicking ‘Submit Claim’, I acknowledge that I have read and agree to the</span>&nbsp;<a target="_blank" routerLink="/terms-condition" routerLinkActive="active" translate>terms and conditions</a>.</p>
+    <div class="next-btn-container d-flex justify-content-lg-start justify-content-center">
+        <button class="btn btn-primary" (click)="submitForm()" enable translate>Submit Claim</button>
+    </div>
+</div>

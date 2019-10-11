@@ -1,0 +1,24 @@
+<div class="change-screen">
+    <div class="mh-100">
+        <div class="title mb-4">
+            <h1 translate>Do you want us to return the original receipt?</h1>
+            <p>A claim of this amount will require to mail us the original receipt and medical certificate. No paper form will be required.</p>
+        </div>
+        <div class="d-flex flex-wrap mb-4 dbox-main">
+            <div class="dbox" [ngClass]="{selected: (originalRec && originalRec === 'Yes')}">
+                <div class="radio-box">
+                    <input type="radio" name="insured" value="claimValue" (click)="nextScreen('Yes')">
+                    <label for="claimValue" translate>Yes</label>
+                    <img src="assets/images/check-icon.png" alt="">
+                </div>
+            </div>
+            <div class="dbox" [ngClass]="{selected: (originalRec && originalRec === 'No')}">
+                <div class="radio-box">
+                    <input type="radio" name="insured" value="claim" (click)="nextScreen('No')">
+                    <label for="claim" translate>No</label>
+                    <img src="assets/images/check-icon.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
