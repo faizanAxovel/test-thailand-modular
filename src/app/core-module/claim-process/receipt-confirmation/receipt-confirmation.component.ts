@@ -19,12 +19,17 @@ export class ReceiptConfirmationComponent implements OnInit {
     if (data) {
       this.originalRec = data.status;
     }
-    this.sharedService.calcProgress(8);
+    this.sharedService.calcProgress(10.92);
   }
 
   nextScreen(data: string) {
     const d = { status: data };
     this.localStorage.setSelectedData('orReceipt', d);
-    this.sharedService._router.navigateByUrl('/review-claim');
+    const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+    if (isGoToNext.status) {
+      this.sharedService._router.navigateByUrl('/review-claim');
+    } else {
+      this.sharedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

@@ -70,6 +70,25 @@ export class OtherClaimComponent implements OnInit {
       amount: Number(this.amount).toFixed(2)
     };
     this.localStorage.setSelectedData('otherClaim', otherAmount);
-    this.sharedService._router.navigate(['/claim-process/attach-document']);
+
+    // check over limit or not 
+    const amountObj = this.localStorage.getSelectedData('receipt');
+    const isOverL = this.sharedService.isOverLimit(amountObj, otherAmount);
+    if (isOverL) {
+      this.sharedService.setTotalSCreen(11);
+    } else {
+      this.sharedService.setTotalSCreen(9);
+    }
+    const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+    if (isGoToNext.status) {
+      this.sharedService._router.navigate(['/claim-process/attach-document']);
+    } else {
+      // if user edit the amount from reveiw claim than redirect to over limit page
+      if (isOverL && isGoToNext.url === '/review-claim') {
+        isGoToNext.url = '/claim-process/over-limit';
+        this.localStorage.removeLatest();
+      }
+      this.sharedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

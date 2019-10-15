@@ -50,6 +50,11 @@ export class ConsultDateComponent implements OnInit {
 
   setConsultDate() {
     this.localStorage.setSelectedData('consultDate', this.dateValue);
-    this.sharedService._router.navigate(['/claim-process/claimant']);
+    const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+    if (isGoToNext.status) {
+      this.sharedService._router.navigate(['/claim-process/claimant']);
+    } else {
+      this.sharedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

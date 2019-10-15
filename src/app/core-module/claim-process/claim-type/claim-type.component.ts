@@ -35,6 +35,11 @@ export class ClaimTypeComponent implements OnInit {
       return;
     }
     this.localStorage.setSelectedData('claimType', claimType);
-    this.sharedService._router.navigate(['/claim-process/hospital-clinic']);
+    const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+    if (isGoToNext.status) {
+      this.sharedService._router.navigate(['/claim-process/hospital-clinic']);
+    } else {
+      this.sharedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

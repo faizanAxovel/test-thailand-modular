@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   styleUrls: ['./review-claim.component.scss']
 })
 export class ReviewClaimComponent implements OnInit {
-
+  policy: any;
   consultDate: Date;
   claimant: Claimant;
   claimType: ClaimType;
@@ -25,6 +25,7 @@ export class ReviewClaimComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.policy = this.localStorage.getSelectedData('policy');
     // get consult date
     this.consultDate = this.localStorage.getSelectedData('consultDate');
     // get claimant

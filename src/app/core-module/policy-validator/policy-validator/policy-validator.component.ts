@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { myConstants } from 'src/app/shared/constant/constant';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-policy-validator',
@@ -13,7 +14,8 @@ export class PolicyValidatorComponent implements OnInit {
   policyForm: FormGroup;
   policyValidation: any;
   constructor(
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private localStorage: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -76,7 +78,7 @@ export class PolicyValidatorComponent implements OnInit {
     const keys = Object.keys(form.value);
     keys.forEach((key) => {
       const control = this.policyForm.get(key);
-      control.setValue(control.value.trim());
+      control.setValue(control.value.trim().toUpperCase());
       control.markAsDirty();
     });
   }
@@ -86,6 +88,7 @@ export class PolicyValidatorComponent implements OnInit {
   onSubmit() {
     this.marksDirty(this.policyForm);
     if (this.policyForm.valid) {
+      this.localStorage.setSelectedData('policy', this.policyForm.value);
       this.sharedService._router.navigate(['claim-process/consult-date']);
     }
   }

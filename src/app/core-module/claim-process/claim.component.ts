@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { Claimant, ClaimType, Hospital, Diagnosis, Receipt } from 'src/app/shared/model/model';
+import { animatedSCreen } from './animation/animate';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-claim',
   templateUrl: './claim.component.html',
-  styleUrls: ['./claim.component.scss']
+  styleUrls: ['./claim.component.scss'],
+  animations: [
+    animatedSCreen
+  ]
 })
 export class ClaimComponent implements OnInit {
 
@@ -31,7 +36,7 @@ export class ClaimComponent implements OnInit {
         this.progressBar = res;
       }
     );
-
+    // check over limit when user refresh page
     // get consult date
     this.consultDate = this.localStorage.getSelectedData('consultDate');
     this.localStorage.subjects.consultDate.subscribe(
@@ -104,13 +109,27 @@ export class ClaimComponent implements OnInit {
         this.orReceipt = res;
       }
     );
+    const isOver = this.sharedService.isOverLimit(this.receipt, this.otherClaim);
+    if (isOver) {
+      this.sharedService.setTotalSCreen(11);
+    } else {
+      this.sharedService.setTotalSCreen(9);
+    }
   }
 
-
+  // for removing the default sorting in keyvalue pipe
+  returnZero() {
+    return 0;
+  }
 
   setLatestScreen(url) {
-    this.localStorage.setLatestScreen(url);
+    this.localStorage.setLatestScreen(this.sharedService._router.url);
     this.sharedService._router.navigateByUrl(url);
+  }
+
+  // for getting the state while changin routes
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
 }

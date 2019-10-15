@@ -20,11 +20,11 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="d-inline-block lg-input-wd mb-2">
-                    <input required type="text" formControlName="policyNumber" class="form-control" id="policy" placeholder="{{'e.g. GHS12345' }}" autofocus>
+                    <input required type="text" formControlName="policyNumber" class="form-control" id="policy" placeholder="{{'e.g. GHS12345' }}" autofocus maxlength="8">
                 </div>
                 <span class="hyphen-col mb-2">-</span>
                 <div class="d-inline-block sm-input-wd mb-2">
-                    <input type="text" formControlName="policyText" class="form-control" id="pp" placeholder="{{'e.g. 000'  }}">
+                    <input type="text" formControlName="policyText" class="form-control" id="pp" placeholder="{{'e.g. 000'  }}" maxlength="3">
                 </div>
             </div>
             <ng-container *ngFor="let error of policyValidation.policyNumber">
@@ -46,11 +46,11 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="d-inline-block lg-input-wd mb-2">
-                    <input required type="text" formControlName="unitNumber" placeholder="{{'e.g. CR000000' }}" class="form-control" id="certificate">
+                    <input required maxlength="10" type="text" formControlName="unitNumber" placeholder="{{'e.g. CR000000' }}" class="form-control" id="certificate">
                 </div>
                 <span class="hyphen-col mb-2">-</span>
                 <div class="d-inline-block sm-input-wd mb-2">
-                    <input type="text" formControlName="unitText" class="form-control" id="pc" placeholder="{{'e.g. 00' }}">
+                    <input maxlength="2" type="text" formControlName="unitText" class="form-control" id="pc" placeholder="{{'e.g. 00' }}">
                 </div>
             </div>
             <ng-container *ngFor="let error of policyValidation.unitNumber">
@@ -73,7 +73,7 @@
             </div>
             <div class="d-block">
                 <div class="d-inline-block lg-input-wd mb-2">
-                    <input required type="text" formControlName="passportNumber" placeholder="{{'e.g. A123456'}}" class="form-control" id="passport">
+                    <input required maxlength="10" type="text" formControlName="passportNumber" placeholder="{{'e.g. A123456'}}" class="form-control" id="passport">
                 </div>
             </div>
             <ng-container *ngFor="let error of policyValidation.passportNumber">

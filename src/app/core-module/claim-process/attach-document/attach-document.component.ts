@@ -3,25 +3,31 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 import { docTypes } from 'src/app/shared/mockup/mockup';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { ActivatedRoute } from '@angular/router';
+import { slideInOut } from '../animation/animate';
 
 @Component({
   selector: 'app-attach-document',
   templateUrl: './attach-document.component.html',
-  styleUrls: ['./attach-document.component.scss']
+  styleUrls: ['./attach-document.component.scss'],
+  animations: [
+    slideInOut
+  ]
 })
 export class AttachDocumentComponent implements OnInit, OnDestroy {
   docTypes: any[];
   activatedScreen: any;
   totalFiles = {};
   isError: boolean;
+  state = 1;
   error = {
     sizeError: 'File size must be less than 10MB.',
     maxFile: 'You can Upload Max 10 file.'
   };
   errText: string;
   isFileAttached: boolean;
+  isOverLimit: boolean;
   constructor(
-    private sharedService: SharedService,
+    public sharedService: SharedService,
     private localStorage: LocalStorageService,
     private activated: ActivatedRoute,
     private detectChange: ChangeDetectorRef
@@ -33,7 +39,6 @@ export class AttachDocumentComponent implements OnInit, OnDestroy {
     for (const doc of this.docTypes) {
       this.totalFiles[doc.docCode] = [];
     }
-    this.sharedService.calcProgress(8);
     const files = this.localStorage.getSelectedData('files');
     if (files) {
       this.isFileAttached = true;
@@ -48,12 +53,28 @@ export class AttachDocumentComponent implements OnInit, OnDestroy {
           res = 'Receipt';
         }
         const screen = this.activated.snapshot.queryParams['screen'];
+        let screenNumber = 8;
+        if (screen) {
+          this.state = screen;
+          screenNumber = screenNumber + (screen * (1 / this.docTypes.length));
+        } else {
+          this.state = 1;
+          screenNumber = screenNumber + (1 / this.docTypes.length);
+        }
+        this.sharedService.calcProgress(screenNumber);
         this.activatedScreen = res;
         if (this.totalFiles[this.activatedScreen].length === 0) {
           this.isFileAttached = false;
+        } else {
+          this.isFileAttached = true;
         }
       }
     );
+
+    // check over limit
+    const am = this.localStorage.getSelectedData('receipt');
+    const otherAm = this.localStorage.getSelectedData('otherClaim');
+    this.isOverLimit = this.sharedService.isOverLimit(am, otherAm);
   }
 
   onChange(target, code) {
@@ -111,7 +132,18 @@ export class AttachDocumentComponent implements OnInit, OnDestroy {
 
   reviewClaim(index) {
     if (this.docTypes.length - 1 === index) {
-      this.sharedService._router.navigate(['/claim-process/over-limit']);
+      const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+      if (isGoToNext.status) {
+        // check overlimit
+
+        if (this.isOverLimit) {
+          this.sharedService._router.navigate(['/claim-process/over-limit']);
+        } else {
+          this.sharedService._router.navigate(['/review-claim']);
+        }
+      } else {
+        this.sharedService._router.navigateByUrl(isGoToNext.url);
+      }
     } else {
       this.sharedService._router.navigateByUrl('/claim-process/attach-document?screen=' + (index + 2) + '#' + this.docTypes[index + 1].docCode);
     }

@@ -27,43 +27,73 @@ const routes: Routes = [
     children: [
       {
         path: 'consult-date',
-        component: ConsultDateComponent
+        component: ConsultDateComponent,
+        data: {
+          animation: 'consultDate'
+        }
       },
       {
         path: 'claimant',
-        component: ClaimantComponent
+        component: ClaimantComponent,
+        data: {
+          animation: 'claimant'
+        }
       },
       {
         path: 'claim-type',
-        component: ClaimTypeComponent
+        component: ClaimTypeComponent,
+        data: {
+          animation: 'claimType'
+        }
       },
       {
         path: 'hospital-clinic',
-        component: HospitalClinicComponent
+        component: HospitalClinicComponent,
+        data: {
+          animation: 'hospitalClinic'
+        }
       },
       {
         path: 'diagnosis',
-        component: DiagnosisComponent
+        component: DiagnosisComponent,
+        data: {
+          animation: 'diagnosis'
+        }
       },
       {
         path: 'receipt-amount',
-        component: ReceiptAmountComponent
+        component: ReceiptAmountComponent,
+        data: {
+          animation: 'receiptAmount'
+        }
       },
       {
         path: 'other-claim',
-        component: OtherClaimComponent
+        component: OtherClaimComponent,
+        data: {
+          animation: 'otherClaim'
+        }
       },
       {
         path: 'attach-document',
-        component: AttachDocumentComponent
+        component: AttachDocumentComponent,
+        data: {
+          animation: 'attachDocument'
+        }
       },
       {
         path: 'receipt-confirmation',
-        component: ReceiptConfirmationComponent
+        component: ReceiptConfirmationComponent,
+        data: {
+          animation: 'receiptConfirmation'
+        }
       },
       {
         path: 'over-limit',
-        component: OverLimitInfoComponent
+        component: OverLimitInfoComponent,
+        data: {
+          animation: 'overLimit'
+        }
       }
     ]
   }

@@ -50,6 +50,24 @@ export class ReceiptAmountComponent implements OnInit {
       currency: 'THD'
     };
     this.localStorage.setSelectedData('receipt', amountObj);
-    this.sharedService._router.navigate(['/claim-process/other-claim']);
+    // check over limit or not 
+    const otherAmount = this.localStorage.getSelectedData('otherClaim');
+    const isOverL = this.sharedService.isOverLimit(amountObj, otherAmount);
+    if (isOverL) {
+      this.sharedService.setTotalSCreen(11);
+    } else {
+      this.sharedService.setTotalSCreen(9);
+    }
+    const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+    if (isGoToNext.status) {
+      this.sharedService._router.navigate(['/claim-process/other-claim']);
+    } else {
+      // if user edit the amount from reveiw claim than redirect to over limit page
+      if (isOverL && isGoToNext.url === '/review-claim') {
+        isGoToNext.url = '/claim-process/over-limit';
+        this.localStorage.removeLatest();
+      }
+      this.sharedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

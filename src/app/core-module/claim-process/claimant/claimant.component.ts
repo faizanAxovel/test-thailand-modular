@@ -26,6 +26,11 @@ export class ClaimantComponent implements OnInit {
   }
   selectedClaim(claimant: Claimant) {
     this.localStorage.setSelectedData('claimant', claimant);
-    this.sharedService._router.navigate(['claim-process/claim-type']);
+    const isGoToNext = this.localStorage.isGoNext(this.sharedService._router.url);
+    if (isGoToNext.status) {
+      this.sharedService._router.navigate(['claim-process/claim-type']);
+    } else {
+      this.sharedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

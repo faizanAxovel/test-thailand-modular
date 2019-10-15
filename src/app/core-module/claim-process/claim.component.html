@@ -10,8 +10,8 @@
 
 <div class="col-md-12">
     <div class="row">
-        <div class="col-lg-6">
-            <router-outlet></router-outlet>
+        <div class="col-lg-6" [@routeAnimations]="prepareRoute(outlet)">
+            <router-outlet #outlet="outlet"></router-outlet>
         </div>
         <!-- show the data selected by user  -->
         <div class="col-lg-6 mb-5" [ngClass]="{'side-bar':consultDate}">
@@ -62,7 +62,7 @@
             <div class="d-flex justify-content-between mb-4" *ngIf="diagnosis">
                 <div class="side-show-text d-flex">
                     <div class="icon-before">
-                        <p translate>Hospital</p>
+                        <p translate>Diagnosis</p>
                         <h3>{{ diagnosis.description }}</h3>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                     <button class="btn" (click)="setLatestScreen('/claim-process/other-claim')">Edit</button>
                 </div>
             </div>
-            <div class="display-flex justify-content-between mb-4" *ngFor="let file of files | keyvalue;let i=index" [style.display]="(file.value.length == 0 ? 'none' : null)">
+            <div class="display-flex justify-content-between mb-4" *ngFor="let file of files | keyvalue: returnZero;let i=index" [style.display]="(file.value.length == 0 ? 'none' : null)">
                 <div class="side-show-text d-flex">
                     <div class="icon-before">
                         <p translate>{{ 'Attached' }} {{ file.key }}</p>

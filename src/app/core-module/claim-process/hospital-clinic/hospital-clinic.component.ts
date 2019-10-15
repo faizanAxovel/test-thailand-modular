@@ -27,6 +27,11 @@ export class HospitalClinicComponent implements OnInit {
 
   seleectedHospital(hosptal: Hospital) {
     this.localStorage.setSelectedData('hospital', hosptal);
-    this.shraedService._router.navigate(['/claim-process/diagnosis']);
+    const isGoToNext = this.localStorage.isGoNext(this.shraedService._router.url);
+    if (isGoToNext.status) {
+      this.shraedService._router.navigate(['/claim-process/diagnosis']);
+    } else {
+      this.shraedService._router.navigateByUrl(isGoToNext.url);
+    }
   }
 }

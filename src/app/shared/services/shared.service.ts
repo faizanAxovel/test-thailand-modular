@@ -9,11 +9,12 @@ import { myConstants } from '../constant/constant';
 export class SharedService {
 
   // subjects variables
-  totalScreen = 8;
+  totalScreen = 9;
   progressBar = new Subject();
   constructor(
     public _router: Router,
-  ) { }
+  ) {
+  }
 
   // calcultae progress bar
 
@@ -97,4 +98,26 @@ export class SharedService {
   }
 
 
+
+  // check is overlimit 
+  isOverLimit(amount: any, otherAmount: any): boolean {
+    let flag = false;
+    if (amount) {
+      const am = parseInt(amount.amount, 10);
+      if (otherAmount && otherAmount.currency !== 'None') {
+        const otherAm = parseInt(otherAmount.amount, 10);
+        if (am - otherAm > 2000) {
+          flag = true;
+        }
+      } else if (am > 2000) {
+        flag = true;
+      }
+    }
+    return flag;
+  }
+
+  // setTotalScreen 
+  setTotalSCreen(screens: number): void {
+    this.totalScreen = screens;
+  }
 }

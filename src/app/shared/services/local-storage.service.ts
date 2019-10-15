@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class LocalStorageService {
   public subjects = {
+    policy: new Subject(),
     consultDate: new Subject(),
     claimant: new Subject(),
     claimType: new Subject(),
@@ -16,6 +17,8 @@ export class LocalStorageService {
     files: new Subject(),
     orReceipt: new Subject()
   };
+
+  urls = ['/claim-process/consult-date', '/claim-process/claimant', '/claim-process/claim-type', '/claim-process/hospital-clinic', '/claim-process/diagnosis', '/claim-process/receipt-amount', 'claim-process/other-claim', '/claim-process/attach-document', '/claim-process/over-limit', '/claim-process/receipt-confirmation', '/review-claim'];
 
 
 
@@ -44,5 +47,20 @@ export class LocalStorageService {
   }
   removeLatest(): void {
     localStorage.removeItem('latestScreen');
+  }
+
+
+  // latest screen process
+  // this function check from which screen user come
+  isGoNext(url: string): { status: boolean, url: string } {
+    const data = { status: true, url: '' };
+    const latestScreen = this.getLatestSCreen();
+    const index = this.urls.indexOf(url);
+    const newArr = this.urls.slice(0, index);
+    if (latestScreen && url !== latestScreen && newArr.indexOf(latestScreen.split('?')[0]) === -1) {
+      data.status = false;
+      data.url = latestScreen;
+    }
+    return data;
   }
 }
